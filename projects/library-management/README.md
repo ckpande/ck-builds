@@ -113,7 +113,7 @@ Control verbosity via `LOG_LEVEL` in `.env` — DEBUG / INFO / WARNING / ERROR /
 ## Notes
 
 - Uses `oracledb` in thin mode — no Oracle Client required
-- Connection pooling via `orc.create_pool` (min=2, max=10)
+- Connection pooling via `oracledb.create_pool` (min=2, max=10)
 - Deadlock retry with exponential backoff in `run_with_retry`
 
 ---
