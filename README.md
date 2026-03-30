@@ -9,11 +9,13 @@ Code. Build. Deploy. — Python · Django · DRF · REST API · JWT · React · 
 ### 01-core-python
 Core Python scripts and patterns.
 
-| Folder        | File                          | What it does                                                                                                                                                  |
-|---------------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mysql/`      | `mysql_bulk_insert.py`        | Bulk upserts employee records using `ON DUPLICATE KEY UPDATE` — tracks insert, update, and unchanged per record with rotating log and full rollback on failure |
-| `generators/` | `transaction_processor.py`    | Streams a transaction CSV through a generator pipeline — filters by type and status, aggregates totals, and writes summaries to JSON                          |
-| `decorators/` | `file_logger_decorator.py`    | Reusable `@log_execution` decorator — wraps any function with execution timing, structured log entries, and error capture using `functools.wraps` and `perf_counter` |
+| Folder | File | What it does |
+|---|---|---|
+| `mysql/` | `mysql_bulk_insert.py` | Bulk upserts employee records using `ON DUPLICATE KEY UPDATE` — tracks insert, update, and unchanged per record with rotating log and full rollback on failure |
+| `generators/` | `transaction_processor.py` | Streams a transaction CSV through a generator pipeline — filters by type and status, aggregates totals, and writes summaries to JSON |
+| `decorators/` | `file_logger_decorator.py` | Reusable `@log_execution` decorator — wraps any function with execution timing, structured log entries, and error capture using `functools.wraps` and `perf_counter` |
+| `exceptions/` | `fintech_exceptions.py` | Custom exception hierarchy for fintech — 6 domain exception classes with context attributes, Oracle-backed transaction pipeline, exception chaining, and try/except/finally isolation across 9 test cases |
+| `exceptions/` | `setup.sql` | Oracle DDL and seed data for `loan_accounts` — run once before executing `fintech_exceptions.py` |
 
 ---
 
