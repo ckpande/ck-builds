@@ -1,18 +1,21 @@
 # thread_pool.py
 # Chandrakant Pande - ckpande
 
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 
 
-def run_parallel(func, items, workers=4):
+def run_parallel(func, items, workers=4, timeout=None):
     results = []
-    with ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = {executor.submit(func, item): item for item in items}
-        for future in as_completed(futures):
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futures = {ex.submit(func, i): i for i in items}
+        for f in as_completed(futures, timeout=timeout):
+            i = futures[f]
             try:
-                results.append(future.result())
+                results.append({"item": i, "result": f.result(), "error": None})
+            except TimeoutError as e:
+                results.append({"item": i, "result": None, "error": e})
             except Exception as e:
-                results.append(e)
+                results.append({"item": i, "result": None, "error": e})
     return results
 
 
