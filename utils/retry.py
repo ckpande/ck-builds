@@ -1,5 +1,5 @@
 # retry.py
-# Chandrakant Pande - ckpande+
+# Chandrakant Pande - ckpande
 
 import time
 from functools import wraps
