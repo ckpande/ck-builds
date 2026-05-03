@@ -26,6 +26,7 @@ Core Python scripts and patterns.
 | `file_handling/` | `fintech_report_handler.py` | ETL pipeline - fetches live loan data from MySQL, writes JSON snapshot with `default=str`, CSV export with `DictWriter`, append-mode audit log, pickle backup with type fidelity, and OS directory scan |
 | `comprehensions/` | `loan_data_processor.py` | All comprehension forms - list, dict, set, generator expressions and nested comprehensions applied to fintech loan data with memory comparison |
 | `context_managers/` | `transaction_context.py` | Context manager protocol - class-based `__enter__`/`__exit__` with live MySQL transaction (commit on success, rollback on exception), `@contextmanager` generator equivalent, and exception suppression demo |
+| `oop/` | `bank_account_oop.py` | BankAccount abstract hierarchy - SavingsAccount (minimum balance, quarterly interest), LoanAccount (EMI via reducing balance formula), FixedDeposit (premature withdrawal penalty), AuditMixin with multiple inheritance, and dunder methods enabling sort and equality on account objects |
 
 ---
 
